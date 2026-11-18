@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신동욱 포트폴리오 · 시안 2-8 · 배경 기획서 A안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* G마켓 산스: 저장소 font 폴더의 파일을 불러옴 (파일 이름 대소문자까지 정확히 일치해야 함) */
+@font-face{font-family:"GmarketSans";src:url("font/GMARKETSANSTTFLIGHT.TTF") format("truetype");font-weight:300;font-display:swap}
+@font-face{font-family:"GmarketSans";src:url("font/GMARKETSANSTTFMEDIUM.TTF") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"GmarketSans";src:url("font/GMARKETSANSTTFBOLD.TTF") format("truetype");font-weight:700;font-display:swap}
+/* 레이아웃: 1920 모니터 기준, 본문 1200 고정 폭. 장면 = 머리(왼쪽) + 이야기(오른쪽) → 영상 카드(테두리 안에 영상 + 제작노트) */
+:root{
+  --paper:#ffffff;
+  --ink:#16181d;
+  --ink-soft:#5b606b;
+  --text:#2b2f37;
+  --line:#e2e4e9;
+  --tint:#f4f5f7;
+  --accent:#1f4fd8;
+  --font-body:"GmarketSans","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1200px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-weight:500;font-size:19px;line-height:1.8;letter-spacing:-0.01em;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 25px;box-sizing:content-box}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:700;letter-spacing:-0.02em}
+
+/* 상단 메뉴바 */
+.nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font-weight:700;font-size:18px;text-decoration:none;display:flex;gap:10px;align-items:baseline}
+.brand small{font-family:var(--font-mono);font-weight:400;font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+.menu{display:flex;gap:29px;list-style:none;margin:0;padding:0;font-size:17px}
+.menu a{text-decoration:none;color:var(--ink-soft)}
+.menu a:hover{color:var(--ink)}
+.menu .on a{color:var(--ink);font-weight:700}
+.menu .soon{color:#b4b8c0;cursor:default}
+
+/* 첫 화면 자리 */
+.hero{padding:58px 0 25px}
+.slot{border:1.5px dashed #c7cbd3;border-radius:6px;padding:58px 33px;text-align:center;color:var(--ink-soft);background:var(--tint);font-weight:300}
+.slot strong{display:block;font-weight:700;color:var(--ink);font-size:21px;margin-bottom:6px}
+.tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+
+/* 장 제목 */
+.chapter{padding:99px 0 8px}
+.chapter-in{display:flex;align-items:baseline;gap:25px;border-bottom:2px solid var(--ink);padding-bottom:19px}
+.chapter .num{font-family:var(--font-mono);font-size:16px;color:var(--accent);letter-spacing:.08em}
+.chapter h2{font-size:46px;line-height:1.2}
+
+/* 장면 */
+.scene{padding:66px 0 25px}
+.scene + .scene{border-top:1px solid var(--line);margin-top:58px}
+.scene-head{display:grid;grid-template-columns:5fr 7fr;gap:49px;margin-bottom:49px}
+.scene-no{font-size:16px;color:var(--ink-soft);margin-bottom:14px}
+.scene-no b{font-family:var(--font-mono);color:var(--accent);font-weight:500;letter-spacing:.06em;margin-right:4px}
+.scene-head h3{font-size:35px;line-height:1.35;margin-bottom:16px}
+.lede{color:var(--ink-soft);font-size:19px;font-weight:500;margin:0}
+.story{max-width:760px}
+.story section + section{margin-top:27px}
+.story h4{margin:0 0 6px;font-size:16px;font-weight:700;color:var(--accent)}
+.story p{margin:0;color:var(--text)}
+.close{margin-top:33px;padding:21px 25px;border-left:3px solid var(--accent);background:var(--tint);font-weight:700;color:var(--ink)}
+
+/* 영상 카드: 테두리 안에 영상 + 제작노트 */
+.cards{display:grid;gap:33px}
+.cards.two{grid-template-columns:1fr 1fr;gap:29px}
+.card{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper);box-shadow:0 1px 2px rgba(22,24,29,.04)}
+.video{position:relative;aspect-ratio:16/9;background:#101216;overflow:hidden}
+.video img,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.video button{position:absolute;inset:0;width:100%;border:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55));cursor:pointer;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;padding:23px 27px;font:inherit;text-align:left}
+.video .vt{font-size:20px;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.play{flex:none;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;transition:transform .15s}
+.video button:hover .play{transform:scale(1.06)}
+.play svg{margin-left:4px}
+.placeholder{position:absolute;inset:0;display:grid;place-items:center;background:#e9ebef;color:#8a8f99;font-family:var(--font-mono);font-size:13px;letter-spacing:.06em}
+
+.note{padding:25px 29px 27px}
+.note-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}
+.note-title{font-weight:700;font-size:22px}
+.yt{font-size:16px;color:var(--ink-soft);text-decoration:none;white-space:nowrap}
+.yt:hover{color:var(--accent)}
+.role{color:var(--text)}
+.role + .role::before{content:"·";margin:0 10px;color:var(--ink-soft);font-weight:500}
+.role.main{font-weight:700;color:var(--ink)}
+.part{margin-bottom:10px;font-size:18px;line-height:1.6}
+.part-hl{display:inline-flex;align-items:baseline;line-height:1;background:#fff27a;padding:7px 12px 4px;margin-left:-12px}
+.part-dt{flex:none;width:108px;margin-right:21px;font-size:16px;color:var(--ink)}
+.cards.two .part-dt{width:96px}
+dl{display:grid;grid-template-columns:108px 1fr;gap:8px 21px;margin:0;font-size:18px;line-height:1.6}
+dt{font-size:16px;color:var(--ink-soft);padding-top:2px}
+dd{margin:0;color:var(--text)}
+.cards.two dl{grid-template-columns:96px 1fr}
+.demo-label{display:inline-block;font-size:14px;color:#8a8f99;border:1px dashed #c7cbd3;border-radius:4px;padding:2px 8px;margin-bottom:12px}
+
+/* 맨 아래 */
+.foot{margin-top:124px;border-top:2px solid var(--ink);padding:58px 0 82px}
+.foot .wrap{display:grid;grid-template-columns:6fr 6fr;gap:49px}
+.foot h2{font-size:32px;line-height:1.4;margin-bottom:12px}
+.foot p{margin:0;color:var(--ink-soft);font-weight:300}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.foot li{display:grid;grid-template-columns:150px 1fr;gap:16px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.foot li span:first-child{font-size:15px;color:var(--ink-soft);padding-top:3px}
+.muted{color:#9aa0aa}
+
+@media (max-width:820px){
+  .menu{display:none}
+  .scene-head,.foot .wrap,.cards.two{grid-template-columns:1fr}
+  .scene-head{gap:21px}
+  .chapter h2{font-size:30px}
+}
+
+/* ===== 시안 2: 남색 면 · Q&A 한 쌍 · 세로 흐름 증거 ===== */
+:root{--navy:#10265a}
+.chapter{padding-bottom:41px}
+.hook{background:var(--navy);color:#fff;padding:87px 0 95px}
+.hook .q-tag{font-size:16px;color:#a9b8dc;margin-bottom:37px}
+.hook .q-tag b{font-family:var(--font-mono);color:#9db8ff;font-weight:500;letter-spacing:.06em;margin-right:8px}
+.qa{display:grid;grid-template-columns:76px 1fr;column-gap:8px}
+.mk{font-family:var(--font-mono);font-weight:500;font-size:26px;line-height:1;padding-top:14px}
+.mk.q-mk{color:#fff}
+.mk.a-mk{color:#9db8ff;padding-top:12px}
+.q{font-size:52px;line-height:1.32;letter-spacing:-0.04em;font-weight:700;color:#fff;margin:0}
+.qa-line{grid-column:1 / -1;height:1px;background:rgba(255,255,255,.18);margin:41px 0 37px}
+.a{margin:0;font-size:28px;line-height:1.55;font-weight:500;color:#c8d6fb;letter-spacing:-0.025em}
+.body2{padding:82px 0 41px}
+.proof-label{font-size:16px;font-weight:700;color:var(--ink-soft);margin:0 0 37px}
+.tl{margin-bottom:74px}
+.tl-row{display:grid;grid-template-columns:200px 1fr;gap:41px;position:relative;padding-bottom:45px}
+.tl-row::before{content:"";position:absolute;left:6px;top:20px;bottom:-6px;width:2px;background:#d3dbee}
+.tl-row:last-child{padding-bottom:0}
+.tl-row:last-child::before{display:none}
+.tl-side{position:relative;padding-left:35px}
+.tl-side::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:50%;background:var(--navy)}
+.tl-no{display:block;font-family:var(--font-mono);font-size:16px;color:var(--accent);letter-spacing:.06em;line-height:1.2}
+.tl-name{display:block;font-size:26px;font-weight:700;color:var(--ink);margin-top:6px}
+.tl-body h4{margin:0 0 10px;font-size:24px;line-height:1.45;font-weight:700;color:var(--ink);letter-spacing:-0.02em}
+.tl-body p{margin:0;font-size:19px;line-height:1.8;color:var(--text);max-width:820px}
+.bg{margin-top:58px;border-top:2px solid var(--ink);padding-top:29px;display:grid;grid-template-columns:200px 1fr;gap:41px}
+.bg h4{margin:3px 0 0;font-size:18px;font-weight:700;color:var(--ink)}
+.bg p{margin:0;font-size:18px;line-height:1.85;color:var(--text);max-width:820px}
+
+.order{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:500;letter-spacing:0;color:#9aa0aa;border:1px dashed #c7cbd3;border-radius:4px;padding:5px 9px 3px;line-height:1;white-space:nowrap}
+.order svg{flex:none;margin-top:-2px}
+.chapter{padding:99px 0 58px}
+.chapter-in{border-bottom:0;padding-bottom:0;align-items:center;gap:21px}
+.hook .q-tag{display:flex;align-items:center;gap:14px;font-size:20px;font-weight:500;color:#c8d6fb;margin-bottom:41px}
+.hook .order{color:#8ea3d6;border-color:#4a63a3}
+.proof-label{font-size:24px;font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin:0 0 45px}
+
+/* ===== 시안 2-4 ===== */
+.chapter{padding:99px 0 41px}
+.chapter-in{border-bottom:2px solid var(--ink);padding-bottom:19px;align-items:center;gap:21px}
+.proof-label{font-size:17px;font-weight:700;color:var(--ink-soft);letter-spacing:-0.01em;margin:0 0 37px}
+
+.card{border:0;border-radius:0;box-shadow:none;background:transparent;overflow:visible}
+.video{border-radius:6px}
+.video button{background:none}
+.video .vt{display:none}
+.note{padding:16px 0 0;margin-top:16px;border-top:2px solid var(--ink)}
+.note-top{margin-bottom:14px}
+.note-title{font-size:22px;letter-spacing:-0.02em}
+.part-hl{margin-left:0}
+.note dl{padding-left:12px}
+.cards{gap:56px}
+
+.yt-btn{display:inline-flex;align-items:center;gap:10px;flex:none;white-space:nowrap;text-decoration:none;background:#fff;color:#16181d;font-size:16px;font-weight:500;letter-spacing:-0.01em;padding:9px 20px 7px 14px;border:1.5px solid #e3242b;border-radius:999px;box-shadow:0 0 0 0 rgba(255,0,0,0);transition:box-shadow .22s ease,background .22s ease}
+.yt-btn .yi{position:relative;display:inline-block;width:24px;height:17px;border-radius:5px;background:#f00;flex:none;margin-top:-2px}
+.yt-btn .yi::after{content:"";position:absolute;left:9.5px;top:4.5px;border-left:7px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent}
+.yt-btn:hover,.yt-btn:focus-visible{background:#fffafa;box-shadow:0 0 0 1px rgba(255,0,0,.35),0 0 14px 2px rgba(255,0,0,.38),0 0 30px 6px rgba(255,0,0,.16)}
+
+/* ===== 시안 2-5 : 배경과 기획 + 기획서 이미지 + 30초 영상 ===== */
+.bg2{margin-top:56px;border-top:2px solid var(--ink);padding-top:30px}
+.bg2-row{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:64px;align-items:start}
+.bg2-text h4{margin:0 0 14px;font-size:17px;font-weight:700;color:var(--ink)}
+.bg2-text p{margin:0;font-size:18px;line-height:1.9;color:var(--text)}
+.clip{margin:0}
+.clip-v{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#101216}
+.clip-v img{width:100%;height:100%;object-fit:cover;display:block}
+.clip-play{position:absolute;left:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.95)}
+.clip-play::after{content:"";position:absolute;left:16px;top:12px;border-left:12px solid #16181d;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.clip-tag{position:absolute;right:10px;top:10px;font-size:12px;color:#fff;background:rgba(0,0,0,.55);padding:4px 9px 3px;border-radius:4px}
+.clip-btn{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;cursor:pointer;padding:0}
+.clip-v iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.clip figcaption strong{font-weight:500;color:var(--ink)}
+.clip figcaption{margin-top:10px;font-size:14px;color:var(--ink-soft);line-height:1.5}
+.soon-tag{display:inline-block;margin-left:6px;font-size:12px;color:#9aa0aa;border:1px dashed #c7cbd3;border-radius:4px;padding:2px 6px 1px}
+.docs{margin:52px 0 0}
+.docs img{width:100%;display:block;border-radius:6px}
+.docs figcaption{margin-top:10px;font-size:14px;color:var(--ink-soft)}
+
+/* 시안 2-8 : 배경과 기획 — 기획서 사진을 구간 배경으로 (A안, 사진 크기는 B안 비율, 가장자리는 서서히 녹아듦) */
+body{overflow-x:clip}
+.bg2{position:relative;border-top:0;margin-top:30px;padding:100px 0 70px}
+.bg2::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);
+ background:url(images/planning-docs.png) center center/min(1300px,100vw) auto no-repeat;opacity:.2;
+ -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%)}
+.bg2::after{content:"";position:absolute;z-index:1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);pointer-events:none;
+ background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 22%,rgba(255,255,255,0) 78%,#fff 100%)}
+.bg2-row{position:relative;z-index:2}
+</style>
+</head>
+<body>
+<div style="position:fixed;right:14px;bottom:14px;z-index:99;background:#ffd84a;color:#16181d;font:700 14px/1 sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.2)">시안 2-8 · 배경 기획서 A안</div>
+
+<nav class="nav" aria-label="주요 메뉴">
+  <div class="wrap">
+    <a class="brand" href="#top">신동욱 <small>VIDEO TEAM LEAD · PORTFOLIO</small></a>
+    <ul class="menu">
+      <li class="on"><a href="#commercial">뮤직비디오·상업 영상</a></li>
+      <li><span class="soon">기업 유튜브 채널</span></li>
+      <li><span class="soon">채널 설계</span></li>
+      <li><a href="#contact">연락처</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="slot">
+      <strong>첫 화면 자리</strong>
+      한 줄 요약과 대표 영상 2~3개가 들어갈 곳입니다. 본문 장면을 모두 완성한 뒤에 채웁니다.
+    </div>
+  </div>
+</header>
+
+<!-- 장 제목 -->
+<div class="chapter" id="commercial">
+  <div class="wrap"><div class="chapter-in">
+    <span class="order" title="순서는 나중에 지정합니다"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10V2M1.5 4l2-2 2 2M8.5 2v8M6.5 8l2 2 2-2"/></svg>순서 지정 예정</span>
+    <h2>뮤직비디오와 상업 영상</h2>
+  </div></div>
+</div>
+
+<!-- 장면 1: 헤이즈 -->
+<article>
+  <div class="hook">
+    <div class="wrap">
+      <div class="q-tag"><span class="order" title="순서는 나중에 지정합니다"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10V2M1.5 4l2-2 2 2M8.5 2v8M6.5 8l2 2 2-2"/></svg>순서 지정 예정</span><span>게임 OST 뮤직비디오 · 협업 프로젝트</span></div>
+      <div class="qa">
+        <span class="mk q-mk">Q.</span><h3 class="q">우리 브랜드엔 세계관이 있는데,<br>영상에선 한 번도 제대로 보여주지 못했다면?</h3>
+        <div class="qa-line"></div>
+        <span class="mk a-mk">A.</span><p class="a">세계관을 영상 한&nbsp;편으로 옮기는 일,<br>콘셉트를 잡는 일부터 완성본까지 한&nbsp;팀으로 이어서 해냈습니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="body2">
+    <div class="wrap">
+      <p class="proof-label">이 작업에서 제가 담당한 파트입니다</p>
+      <div class="tl">
+        <div class="tl-row">
+          <div class="tl-side"><span class="tl-no">01</span><span class="tl-name">기획</span></div>
+          <div class="tl-body"><h4>기획 회의부터 함께했습니다.</h4><p>클라이언트 기획 담당, 미술 감독, 조명 감독, 연출 감독, 그리고 촬영 감독인 제가 한 테이블에서 콘셉트를 맞췄습니다. 저는 편집도 메인으로 맡기로 되어 있었고, 편집은 색보정까지 이어지는 구조라 처음부터 톤을 같이 설계했습니다.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-side"><span class="tl-no">02</span><span class="tl-name">촬영</span></div>
+          <div class="tl-body"><h4>촬영은 8명의 촬영 감독이 나눠 맡은 큰 현장이었습니다.</h4><p>저는 전동 지미집 팀의 포커스 풀러로 함께 소화했고, 같은 현장에서 틈틈이 메이킹필름 메인 촬영을 이끌었습니다.</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-side"><span class="tl-no">03</span><span class="tl-name">편집</span></div>
+          <div class="tl-body"><h4>편집은 메인으로 맡았습니다.</h4><p>클라이언트 컨펌에 맞춰 세 가지 색보정 안으로 시작했고, 최종 톤이 정해질 때까지 8~9개 버전을 거쳤습니다.</p></div>
+        </div>
+      </div>
+
+      <div class="cards">
+      <div class="card">
+        <div class="video" data-id="1Og3msTuRZA" data-title="헤이즈 「PRAY」 게임 OST 뮤직비디오"></div>
+        <div class="note">
+          <div class="note-top">
+            <span class="note-title">헤이즈 「PRAY」 게임 OST 뮤직비디오</span>
+            <a class="yt-btn" href="https://www.youtube.com/watch?v=1Og3msTuRZA" target="_blank" rel="noopener"><span class="yi" aria-hidden="true"></span>YouTube에서 보기</a>
+          </div>
+          <div class="part"><span class="part-hl"><span class="part-dt">담당 파트</span><span><span class="role main">메인 편집</span><span class="role">촬영 (포커스 풀러)</span></span></span></div>
+          <dl>
+            <dt>제작 기간</dt><dd>촬영 2일 · 편집 5일</dd>
+            <dt>촬영 장비</dt><dd>전동 지미집 · 알렉사 미니 · 아리 마스터 프라임 렌즈 세트</dd>
+            <dt>제작 인원</dt><dd>연출 1인 · 촬영 8인 · 편집 3인 · 조명팀 · 미술팀</dd>
+            <dt>로케이션</dt><dd>스튜디오 0717, 경기 포천시 소재</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="video" data-id="h7N49JXdKG8" data-title="헤이즈 뮤직비디오 촬영 현장 메이킹필름"></div>
+        <div class="note">
+          <div class="note-top">
+            <span class="note-title">헤이즈 뮤직비디오 촬영 현장 메이킹필름</span>
+            <a class="yt-btn" href="https://www.youtube.com/watch?v=h7N49JXdKG8" target="_blank" rel="noopener"><span class="yi" aria-hidden="true"></span>YouTube에서 보기</a>
+          </div>
+          <div class="part"><span class="part-hl"><span class="part-dt">담당 파트</span><span><span class="role main">메인 촬영</span><span class="role">편집</span></span></span></div>
+          <dl>
+            <dt>제작 기간</dt><dd>촬영 2일 · 편집 5일</dd>
+            <dt>촬영 장비</dt><dd>소니 A7S3 · A7C II / 소니 24GM · 50GM · 85GM · 24-70GM / 로닌 RS3 짐벌</dd>
+            <dt>제작 인원</dt><dd>촬영 3인 · 편집 1인</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+      <div class="bg2">
+        <div class="bg2-row">
+          <div class="bg2-text">
+            <h4>배경과 기획</h4>
+            <p>게임사가 신작 「아르케랜드」 출시를 앞두고 가수 헤이즈를 섭외해 OST 「Pray」 뮤직비디오를 의뢰했습니다. 주인공 아이비(정식 서비스 시 아비아로 변경)의 서사를 헤이즈에 빗대어 담아달라는 요청이었습니다. 중세 판타지 세계관에 맞춰 궁전 같은 스튜디오를 섭외하고, 컨셉에 맞게 세트 일부를 부분 공사했습니다. 색은 감정 변화를 따라 우울한 저채도, 순수한 화이트와 골드, 강렬한 블랙과 레드, 세 단계로 설계했습니다.</p>
+          </div>
+          <figure class="clip">
+            <div class="clip-v" data-id="cOKxqbOnAeA" data-title="현장 원본 컷"><img src="https://i.ytimg.com/vi/cOKxqbOnAeA/maxresdefault.jpg" alt="" loading="lazy"><button type="button" class="clip-btn" aria-label="현장 원본 컷 재생"><span class="clip-play" aria-hidden="true"></span></button><span class="clip-tag">30초 · 현장</span></div>
+            <figcaption><strong>현장 원본 컷</strong> · 촬영 원본에서 현장 분위기만 골라 이었습니다</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>맺음말 자리</h2>
+      <p>모든 장면을 완성한 뒤, 영상 제작은 사람을 이해하고 소통하는 일이라는 마음을 한두 줄로 정리해 넣습니다.</p>
+    </div>
+    <ul>
+      <li><span>이름</span><span>신동욱</span></li>
+      <li><span>연락처</span><span class="muted">입력 예정</span></li>
+      <li><span>이메일</span><span class="muted">입력 예정</span></li>
+      <li><span>프로덕션 공식 채널</span><span><a href="https://www.youtube.com/user/chaos2997" target="_blank" rel="noopener">MJJ Progress YouTube ↗</a></span></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.video[data-id]').forEach(function(box){
+  var id = box.dataset.id, title = box.dataset.title;
+  var img = document.createElement('img');
+  img.alt = ''; img.loading = 'lazy';
+  img.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+  img.onerror = function(){ img.remove(); };
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.setAttribute('aria-label', title + ' 재생');
+  btn.innerHTML = '<span class="vt"></span><span class="play"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true"><path d="M0 0 L22 12 L0 24 Z" fill="#16181d"/></svg></span>';
+  btn.querySelector('.vt').textContent = title;
+  btn.addEventListener('click', function(){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    f.title = title;
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    box.innerHTML = '';
+    box.appendChild(f);
+  });
+  box.appendChild(img);
+  box.appendChild(btn);
+});
+document.querySelectorAll('.clip-v[data-id]').forEach(function(box){
+  var b=box.querySelector('.clip-btn');
+  b.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+box.dataset.id+'?autoplay=1&rel=0';
+    f.title=box.dataset.title;
+    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen=true;
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    box.innerHTML='';box.appendChild(f);
+  });
+});
+</script>
+</body>
+</html>
