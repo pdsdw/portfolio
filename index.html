@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>신동욱 포트폴리오 · 시안 2-10 · 제목 위로</title>
+<title>신동욱 포트폴리오 · 시안 2-16 · 선 간격 24</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* G마켓 산스: 저장소 font 폴더의 파일을 불러옴 (파일 이름 대소문자까지 정확히 일치해야 함) */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
 @font-face{font-family:"GmarketSans";src:url("font/GMARKETSANSTTFLIGHT.TTF") format("truetype");font-weight:300;font-display:swap}
 @font-face{font-family:"GmarketSans";src:url("font/GMARKETSANSTTFMEDIUM.TTF") format("truetype");font-weight:500;font-display:swap}
 @font-face{font-family:"GmarketSans";src:url("font/GMARKETSANSTTFBOLD.TTF") format("truetype");font-weight:700;font-display:swap}
@@ -167,12 +168,16 @@ dd{margin:0;color:var(--text)}
 .video{border-radius:6px}
 .video button{background:none}
 .video .vt{display:none}
-.note{padding:16px 0 0;margin-top:16px;border-top:2px solid var(--ink)}
+.note{padding:16px 0 24px;margin-top:16px;border-bottom:2px solid var(--ink)}
+.cards>.card:first-child .card-head{border-top:2px solid var(--ink);padding-top:24px}
 .note-top{margin-bottom:14px}
-.note-title{font-size:22px;letter-spacing:-0.02em}
+.note-title{font-family:"Pretendard",GmarketSans,sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em}
+.card-head .ttl{display:flex;align-items:center;gap:12px;min-width:0;white-space:nowrap}
+.tag-w{font-family:"Pretendard",GmarketSans,sans-serif;font-weight:700;font-size:16px;letter-spacing:0.01em;color:#fff;background:#8f1d2c;border-radius:6px;padding:5px 13px}
+
 .part-hl{margin-left:0}
 .note dl{padding-left:12px}
-.cards{gap:56px}
+.cards{gap:24px}
 
 .yt-btn{display:inline-flex;align-items:center;gap:10px;flex:none;white-space:nowrap;text-decoration:none;background:#fff;color:#16181d;font-size:16px;font-weight:500;letter-spacing:-0.01em;padding:9px 20px 7px 14px;border:1.5px solid #e3242b;border-radius:999px;box-shadow:0 0 0 0 rgba(255,0,0,0);transition:box-shadow .22s ease,background .22s ease}
 .yt-btn .yi{position:relative;display:inline-block;width:24px;height:17px;border-radius:5px;background:#f00;flex:none;margin-top:-2px}
@@ -189,7 +194,7 @@ dd{margin:0;color:var(--text)}
 .clip-v img{width:100%;height:100%;object-fit:cover;display:block}
 .clip-play{position:absolute;left:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.95)}
 .clip-play::after{content:"";position:absolute;left:16px;top:12px;border-left:12px solid #16181d;border-top:8px solid transparent;border-bottom:8px solid transparent}
-.clip-tag{position:absolute;right:10px;top:10px;font-size:12px;color:#fff;background:rgba(0,0,0,.55);padding:4px 9px 3px;border-radius:4px}
+.clip-tag{position:absolute;right:12px;top:12px;font-size:14px;color:#fff;background:rgba(0,0,0,.55);padding:5px 11px 4px;border-radius:5px}
 .clip-btn{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;cursor:pointer;padding:0}
 .clip-v iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .clip figcaption strong{font-weight:500;color:var(--ink)}
@@ -199,22 +204,22 @@ dd{margin:0;color:var(--text)}
 .docs img{width:100%;display:block;border-radius:6px}
 .docs figcaption{margin-top:10px;font-size:14px;color:var(--ink-soft)}
 
-/* 시안 2-8 : 배경과 기획 — 기획서 사진을 구간 배경으로 (A안, 사진 크기는 B안 비율, 가장자리는 서서히 녹아듦) */
+/* 시안 2-17 : 이 영상은 이렇게 시작됐습니다 — 제목·태그 / 본문 / 서류 사진(75%, 오른쪽 흐림) + 현장 영상(사진 가장자리에 걸침) */
 body{overflow-x:clip}
-.bg2{position:relative;border-top:0;margin-top:30px;padding:0;min-height:calc(min(1300px,100vw)*0.5628);display:flex;align-items:center}
-.bg2>.bg2-row{width:100%}
-.bg2::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);
- background:url(images/planning-docs.png) center center/min(1300px,100vw) auto no-repeat;opacity:.2;
- -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 20%,#000 80%,transparent 100%)}
-.bg2::after{content:"";position:absolute;z-index:1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);pointer-events:none;
- background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 7%,rgba(255,255,255,0) 93%,#fff 100%)}
-.bg2-row{position:relative;z-index:2}
+.bg2{position:static;display:block;border-top:0;padding:0;min-height:0;margin-top:24px}
+.bg2-text p{margin:0 0 32px;font-size:18px;line-height:1.8;color:var(--text)}
+.tag-s{background:#168a5c}
+.bg2-stage{position:relative;height:506px}
+.bg2-photo{position:absolute;left:0;top:0;width:900px;height:506px;border-radius:6px 0 0 6px;background:url(images/planning-docs.png) center/cover no-repeat;opacity:.55;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 62%,transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 62%,transparent 100%)}
+.bg2-stage .clip{position:absolute;right:0;top:100px;width:560px;margin:0}
+.bg2-stage .clip-v{box-shadow:0 10px 30px rgba(22,24,29,.28)}
 .card-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 16px}
 .bg2-rule{height:2px;background:var(--ink);margin-top:56px}
 </style>
 </head>
 <body>
-<div style="position:fixed;right:14px;bottom:14px;z-index:99;background:#ffd84a;color:#16181d;font:700 14px/1 sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.2)">시안 2-10 · 제목 위로</div>
+<div style="position:fixed;right:14px;bottom:14px;z-index:99;background:#ffd84a;color:#16181d;font:700 14px/1 sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;gap:8px;align-items:center">시안 2-19 · 제목 크기 <button onclick="sz(26)">26</button><button onclick="sz(28)">28</button><button onclick="sz(30)">30</button><button onclick="sz(32)">32</button></div>
+<script>function sz(n){document.querySelectorAll(".note-title").forEach(function(e){e.style.fontSize=n+"px"})}</script>
 
 <nav class="nav" aria-label="주요 메뉴">
   <div class="wrap">
@@ -278,10 +283,10 @@ body{overflow-x:clip}
       <div class="cards">
       <div class="card">
         <div class="card-head">
-            <span class="note-title">헤이즈 「PRAY」 게임 OST 뮤직비디오</span>
+            <span class="ttl"><span class="note-title">아르케랜드 게임 OST 뮤직비디오 「PRAY」</span><span class="tag-w">with 헤이즈</span></span>
             <a class="yt-btn" href="https://www.youtube.com/watch?v=1Og3msTuRZA" target="_blank" rel="noopener"><span class="yi" aria-hidden="true"></span>YouTube에서 보기</a>
           </div>
-        <div class="video" data-id="1Og3msTuRZA" data-title="헤이즈 「PRAY」 게임 OST 뮤직비디오"></div>
+        <div class="video" data-id="1Og3msTuRZA" data-title="아르케랜드 게임 OST 뮤직비디오 「PRAY」"></div>
         <div class="note">
           <div class="part"><span class="part-hl"><span class="part-dt">담당 파트</span><span><span class="role main">메인 편집</span><span class="role">촬영 (포커스 풀러)</span></span></span></div>
           <dl>
@@ -295,10 +300,10 @@ body{overflow-x:clip}
 
       <div class="card">
         <div class="card-head">
-            <span class="note-title">헤이즈 뮤직비디오 촬영 현장 메이킹필름</span>
+            <span class="ttl"><span class="note-title">아르케랜드 게임 OST 헤이즈 MV 촬영 현장</span><span class="tag-w">Making Film</span></span>
             <a class="yt-btn" href="https://www.youtube.com/watch?v=h7N49JXdKG8" target="_blank" rel="noopener"><span class="yi" aria-hidden="true"></span>YouTube에서 보기</a>
           </div>
-        <div class="video" data-id="h7N49JXdKG8" data-title="헤이즈 뮤직비디오 촬영 현장 메이킹필름"></div>
+        <div class="video" data-id="h7N49JXdKG8" data-title="아르케랜드 게임 OST 헤이즈 MV 촬영 현장"></div>
         <div class="note">
           <div class="part"><span class="part-hl"><span class="part-dt">담당 파트</span><span><span class="role main">메인 촬영</span><span class="role">편집</span></span></span></div>
           <dl>
@@ -310,19 +315,18 @@ body{overflow-x:clip}
       </div>
     </div>
 
-      <div class="bg2-rule"></div>
-      <div class="bg2">
-        <div class="bg2-row">
-          <div class="bg2-text">
-            <h4>배경과 기획</h4>
-            <p>게임사가 신작 「아르케랜드」 출시를 앞두고 가수 헤이즈를 섭외해 OST 「Pray」 뮤직비디오를 의뢰했습니다. 주인공 아이비(정식 서비스 시 아비아로 변경)의 서사를 헤이즈에 빗대어 담아달라는 요청이었습니다. 중세 판타지 세계관에 맞춰 궁전 같은 스튜디오를 섭외하고, 컨셉에 맞게 세트 일부를 부분 공사했습니다. 색은 감정 변화를 따라 우울한 저채도, 순수한 화이트와 골드, 강렬한 블랙과 레드, 세 단계로 설계했습니다.</p>
-          </div>
+            <div class="bg2">
+        <div class="card-head">
+          <span class="ttl"><span class="note-title">이 영상은 이렇게 시작됐습니다</span><span class="tag-w tag-s">의뢰 배경</span></span>
+        </div>
+        <div class="bg2-text"><p>게임사가 신작 「아르케랜드」 출시를 앞두고 가수 헤이즈를 섭외해 OST 「Pray」 뮤직비디오를 의뢰했습니다. 주인공 아이비(정식 서비스 시 아비아로 변경)의 서사를 헤이즈에 빗대어 담아달라는 요청이었습니다. 중세 판타지 세계관에 맞춰 궁전 같은 스튜디오를 섭외하고, 컨셉에 맞게 세트 일부를 부분 공사했습니다. 색은 감정 변화를 따라 우울한 저채도, 순수한 화이트와 골드, 강렬한 블랙과 레드, 세 단계로 설계했습니다.</p></div>
+        <div class="bg2-stage">
+          <div class="bg2-photo"></div>
           <figure class="clip">
             <div class="clip-v" data-id="cOKxqbOnAeA" data-title="현장 원본 컷"><img src="https://i.ytimg.com/vi/cOKxqbOnAeA/maxresdefault.jpg" alt="" loading="lazy"><button type="button" class="clip-btn" aria-label="현장 원본 컷 재생"><span class="clip-play" aria-hidden="true"></span></button><span class="clip-tag">40초 · 현장</span></div>
-            <figcaption><strong>현장 원본 컷</strong> · 촬영 원본에서 현장 분위기만 골라 이었습니다</figcaption>
+            <figcaption><strong>현장 원본 컷</strong> · 보정 없이 현장 분위기를 담았습니다</figcaption>
           </figure>
         </div>
-
       </div>
     </div>
   </div>
