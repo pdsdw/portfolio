@@ -218,6 +218,14 @@ body{overflow-x:clip}
 .chan-sub{margin:0 0 44px;font-size:19px;color:var(--ink-soft)}
 .chan-body p{margin:0 0 26px;font-size:19px;line-height:1.9;font-weight:500;color:#2b2f37;letter-spacing:-0.19px}
 .chan-body p:last-child{margin-bottom:0}
+.chan-env-t{margin:44px 0 12px;font-family:"Pretendard",GmarketSans,sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.02em;color:#10265a}
+.chan-env{margin:0;width:fit-content;max-width:100%;background:#fff;border:1px solid var(--line);border-top:3px solid #10265a;border-radius:6px}
+.chan-env dl{margin:0;padding:0 18px;display:grid;grid-template-columns:84px auto}
+.chan-env dt,.chan-env dd{margin:0;padding:9px 0;border-top:1px solid var(--line);font-size:17px;line-height:1.55;letter-spacing:-0.17px}
+.chan-env dt:first-of-type,.chan-env dt:first-of-type+dd{border-top:0}
+.chan-env dt{font-family:"Pretendard",GmarketSans,sans-serif;font-weight:700;color:#10265a}
+.chan-env dd{font-weight:500;color:#2b2f37}
+.chan-env .nb{white-space:nowrap}
 .chan-next{display:flex;align-items:stretch;gap:18px;margin:48px 0 0}
 .chan-bar{flex:none;width:3px;background:#10265a;border-radius:2px}
 .chan-next p{margin:0;font-size:19px;line-height:1.85;font-weight:500;color:#10265a;letter-spacing:-0.19px}
@@ -228,6 +236,22 @@ body{overflow-x:clip}
 .psy-i{border:1px solid var(--line);border-top:3px solid #10265a;border-radius:6px;background:#fff;padding:14px 12px 16px}
 .psy-i b{display:block;min-height:46px;font-family:"Pretendard",GmarketSans,sans-serif;font-weight:800;font-size:17px;line-height:1.35;letter-spacing:-0.02em;color:#10265a;margin:0 0 8px}
 .psy-i span{display:block;font-size:14px;line-height:1.65;color:var(--text);letter-spacing:-0.1px}
+.psy-mx{margin:8px 0 8px;border:1px solid var(--line);border-top:3px solid #10265a;border-radius:6px;background:#fff;overflow:hidden}
+.psy-mx .mx-r{display:grid;grid-template-columns:minmax(0,2.5fr) repeat(3,minmax(0,1fr));align-items:center;border-top:1px solid var(--line)}
+.psy-mx .mx-r:first-child{border-top:0;background:#f6f7fa}
+.psy-mx .mx-r>div{padding:15px 20px}
+.psy-mx .mx-h{font-size:19px;font-weight:700;color:#10265a;text-align:center;line-height:1.4;letter-spacing:-0.19px}
+.psy-mx .mx-h.l{text-align:left}
+.psy-mx .mx-h img{display:block;width:144px;height:72px;object-fit:cover;transform:scale(1.01);border-radius:4px;margin:0 auto;background:#e6e8ee}
+.psy-mx .mx-a b{display:block;font-family:"Pretendard",GmarketSans,sans-serif;font-weight:800;font-size:20px;line-height:1.35;letter-spacing:-0.02em;color:#10265a}
+.psy-mx .mx-a span{display:block;font-size:19px;line-height:1.5;font-weight:500;color:#2b2f37;letter-spacing:-0.19px;margin-top:3px}
+.psy-mx .mx-c{display:flex;justify-content:center}
+.psy-mx .on,.psy-mx .off{display:block;width:18px;height:18px;border-radius:50%;box-sizing:border-box}
+.psy-mx .on{background:#10265a}
+.psy-mx .off{border:1.5px solid #9aa3b5}
+.psy-key{display:flex;gap:18px;justify-content:flex-end;margin:0 0 32px;font-size:19px;font-weight:500;color:#2b2f37;letter-spacing:-0.19px}
+.psy-key span{display:inline-flex;align-items:center;gap:6px}
+.bg2-text a{color:#10265a;font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 .psy-flow{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 0 36px;font-family:"Pretendard",GmarketSans,sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.02em;color:#10265a}
 .psy-flow i{font-style:normal;color:#9aa3b5;font-weight:500}
 .psy-flow span{background:linear-gradient(transparent 62%,#ffe58a 62%);padding:0 4px}
@@ -332,12 +356,9 @@ article+article{margin-top:39px}
 .mv-tab .mv-2{margin-top:58px}
 .mv-tab .note{margin-top:50px}
 .card.mv-tab .note{margin-top:64px}
-.mv-tab .yt-in{right:24px;bottom:auto;top:100%;height:34px;padding:0 16px 0 12px;background:#000;border-radius:0 0 8px 8px;text-shadow:none;font-size:16px;gap:9px}
-.mv-tab .yt-in .yi{width:24px;height:17px;border-radius:5px}
-.mv-tab .yt-in .yi::after{left:9.5px;top:4.5px;border-left:7px solid #fff;border-top-width:4px;border-bottom-width:4px}
-.mv-tab .vm .yt-in{right:18px;height:30px;padding:0 13px 0 10px;font-size:14px;gap:8px;border-radius:0 0 7px 7px}
-.mv-tab .vm .yt-in .yi{width:21px;height:15px}
-.mv-tab .vm .yt-in .yi::after{left:8.5px;top:4px;border-left:6px solid #fff;border-top-width:3.5px;border-bottom-width:3.5px}
+.mv-tab .yt-in{right:14px;bottom:auto;top:100%;height:26px;padding:0 10px 0 8px;background:#000;border-radius:0 0 6px 6px;text-shadow:none;font-size:12px;gap:6px}
+.mv-tab .yt-in .yi{width:18px;height:13px;border-radius:4px}
+.mv-tab .yt-in .yi::after{left:7px;top:3.5px;border-left:5px solid #fff;border-top-width:3px;border-bottom-width:3px}
 .mv-tab .mv-3{margin-top:58px}
 .mv-tab .vs .yt-in{right:14px;height:26px;padding:0 10px 0 8px;font-size:12px;gap:6px;border-radius:0 0 6px 6px}
 .mv-tab .vs .yt-in .yi{width:18px;height:13px;border-radius:4px}
@@ -349,8 +370,9 @@ article+article{margin-top:39px}
 @supports (text-box:trim-both cap alphabetic){.yt-in .yt-t{text-box:trim-both cap alphabetic}}
 @supports not (text-box:trim-both cap alphabetic){.mv-tab .yt-in .yt-t{padding-top:2px}}
 .mv-tab .yt-in{box-sizing:border-box;transition:box-shadow .2s ease,transform .2s ease,border-radius .2s ease}
-.mv-tab .yt-in:hover{text-decoration:none;transform:translateY(12px);border-radius:8px;box-shadow:0 0 0 1px rgba(255,26,26,.85),0 0 8px 1px rgba(255,0,0,.55),0 0 18px 3px rgba(255,0,0,.4),0 0 34px 7px rgba(255,0,0,.2)}
+.mv-tab .yt-in:hover{text-decoration:none;transform:translateY(10px);border-radius:6px;box-shadow:0 0 0 1px rgba(255,26,26,.85),0 0 8px 1px rgba(255,0,0,.55),0 0 18px 3px rgba(255,0,0,.4),0 0 34px 7px rgba(255,0,0,.2)}
 .mv-tab .yt-in:focus-visible{outline:2px solid #f00;outline-offset:2px}
+.mv-tab + .bg2,.cards + .bg2{margin-top:72px}
 
 /* 3840x1920(2:1) 시리즈: 영상 칸을 2:1로, 썸네일의 위아래 검은 띠는 잘라냄 (좌우는 그대로) */
 .vw .video{aspect-ratio:2/1}
@@ -515,6 +537,19 @@ article+article{margin-top:39px}
         <p>다만 저는 우려스러웠습니다. 테슬라는 콘텐츠 시장성이 아주 작은 주제라 채널 성장이 더딜 수 있고, 아무리 좋아하는 일이라도 성장이 더디면 포기하는 시점도 빨리 올 수 있다고 말씀드렸습니다. 성과가 늦어지는 시기에 채널이 멈추는 경우를 여러 번 봐 왔기 때문에, 저는 시작하기 전에 그 시기를 버틸 이유가 어디에 있는지를 먼저 확인합니다. 대표님은 이에 대해 저를 붙잡고 두 시간 가까이 이 일을 하려는 이유를 설명하셨습니다. 유튜브를 하려고 주제를 고른 것이 아니라, 그 마음을 전할 도구로 유튜브를 택한 것이라는 이야기였습니다. 채널을 이어가는 것 자체가 삶인 분이라, 성장이 더딘 시기도 잘 이겨내실 수 있겠다고 판단해 시작하기로 했습니다.</p>
       </div>
 
+      <h3 class="chan-env-t">제작 환경</h3>
+      <div class="chan-env">
+        <dl>
+          <dt>제작 인원</dt><dd>영상팀 2명 (본인 + 팀원 1명)</dd>
+          <dt>카메라</dt><dd>소니 A7S III 1대, 소니 A7C II 2대</dd>
+          <dt>렌즈</dt><dd><span class="nb">소니 24mm GM,</span> <span class="nb">85mm GM,</span> <span class="nb">24-70mm GM,</span> <span class="nb">PZ 16-35mm G</span></dd>
+          <dt>짐벌</dt><dd>DJI RS 3 Pro</dd>
+          <dt>드론</dt><dd>DJI 매빅 에어 2S</dd>
+          <dt>마이크</dt><dd>소니 UWP-D27, 젠하이저 MKE 600, 소니 ICD-TX660 3대</dd>
+          <dt>조명</dt><dd>300W 2대, 600W 1대</dd>
+        </dl>
+      </div>
+
       <div class="chan-next">
         <span class="chan-bar"></span>
         <p>이 구간에는 개인 브랜딩 채널과 회사 채널, 두 채널의 영상이 함께 있습니다. 채널이 어떤 영상들로 만들어졌고, 각 영상을 어떤 의도로 기획했는지를 먼저 봐 주세요. <mark>두 채널이 만들어 낸 성과와 성장 결과는 <strong>채널 설계</strong>에 따로 정리해 두었으니, 영상을 보신 뒤 그쪽에서 이어서 확인해 주세요.</mark><!-- [링크 슬롯] 채널 설계 페이지가 열리면 strong을 a로 교체 --></p>
@@ -529,9 +564,9 @@ article+article{margin-top:39px}
     <div class="wrap">
       <div class="q-tag"><span class="order" title="순서는 나중에 지정합니다"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10V2M1.5 4l2-2 2 2M8.5 2v8M6.5 8l2 2 2-2"/></svg>순서 지정 예정</span><span></span></div>
       <div class="qa">
-        <span class="mk q-mk">Q.</span><h3 class="q">우리 회사의 철학이나 상품·서비스의 가치를 영상으로 전하고 싶은데,<br>설명만 해서는 사람들이 움직이지 않을까 걱정되시나요?</h3>
+        <span class="mk q-mk">Q.</span><h3 class="q">영상으로 전하고 싶은 가치가 있는데,<br>설명만으로 사람들이 움직이지 않으면 어쩌죠?</h3>
         <div class="qa-line"></div>
-        <span class="mk a-mk">A.</span><p class="a">시청자가 어떤 마음으로 영상을 보는지부터 설계했습니다.<br>근거로 믿게 하고, 같은 처지의 사람들 이야기로 공감하게 하고, 같은 주제를 먼저 다뤄 온 사람과의 대화로 신뢰를 쌓고, 대표님의 진솔한 이야기로 마음을 열었습니다.</p>
+        <span class="mk a-mk">A.</span><p class="a">시청자가 어떤 마음으로 영상을 보는지부터 설계했습니다.<br>아래 영상들은 모두 다른 영상처럼 보이겠지만, 설득의 핵심 심리 7가지 축을 중심에 놓고 표현 방식을 달리하여 만든 영상들입니다.</p>
       </div>
     </div>
   </div>
@@ -540,7 +575,7 @@ article+article{margin-top:39px}
       <!-- [본문 슬롯] Q&A와 영상 사이 내용이 필요하면 여기에 삽입 -->
       <div class="mv mv-tab">
         <div class="mv-top">
-          <div class="g-head"><span class="ttl"><span class="note-title">대표 토크</span><span class="tag-w">설득을 설계한 대화</span><span class="tag-en">CEO Talk</span></span></div>
+          <div class="g-head"><span class="ttl"><span class="note-title">설득 심리를 기준으로 기획한 개인 브랜딩 채널, 그 대표 영상 3편</span><span class="tag-w">CEO Talk</span></span></div>
           <!-- 01 메인 -->
           <div class="vw vl">
             <div class="video" data-id="92s_YotZx1A" data-title="대표 토크 01"></div>
@@ -559,24 +594,26 @@ article+article{margin-top:39px}
           </div>
           </div>
         </div>
-        <div class="note">
-          <dl>
-            <dt>제작 기간</dt><dd></dd>
-            <dt>로케이션</dt><dd></dd>
-            <dt>촬영 장비</dt><dd></dd>
-            <dt>제작 인원</dt><dd></dd>
-          </dl>
-        </div>
       </div>
 
       <div class="bg2">
         <div class="card-head">
           <span class="ttl"><span class="note-title">이 영상은 이렇게 시작됐습니다</span><span class="tag-w tag-s">기획 배경</span></span>
         </div>
-        <div class="bg2-text"><p>이 영상들은 “무엇을 말할까”가 아니라 “시청자가 어떤 마음을 거쳐 설득되는가”에서 시작했습니다. 대표님과 함께, 사람을 움직이는 핵심 심리를 먼저 정리했습니다.</p></div>
-        <div class="psy"><div class="psy-i"><b>회피 본능</b><span>손해·실패·위험·후회를 피하고 싶은 심리</span></div><div class="psy-i"><b>희망 / 욕망</b><span>더 나은 미래, 성공, 변화, 성장에 대한 기대</span></div><div class="psy-i"><b>소속감</b><span>특정 집단·문화·커뮤니티에 속하고 싶은 욕구</span></div><div class="psy-i"><b>인정 욕구</b><span>타인에게 인정받고 존중받고 싶은 심리</span></div><div class="psy-i"><b>통제감</b><span>내가 상황을 바꿀 수 있다는 느낌을 원하는 심리</span></div><div class="psy-i"><b>긴급함</b><span>지금 하지 않으면 놓친다는 압박감</span></div><div class="psy-i"><b>변화에 대한 두려움</b><span>세상이 변하는데 뒤처질 수 있다는 불안</span></div></div>
-        <p class="psy-flow"><span>불안</span><i>→</i><span>공감</span><i>→</i><span>희망</span><i>→</i><span>행동</span></p>
-        <div class="bg2-text"><p>이 심리를 문장 그대로 말하면 설명에 그칩니다. 위 영상들은 표현 방식만 다를 뿐, 기획 단계에서는 같은 핵심 심리를 축으로 삼아 누구나 공감할 수 있는 모습으로 풀어낸 영상입니다.</p></div>
+        <div class="bg2-text"><p>이 영상들은 “무엇을 말할까”가 아니라 “시청자가 어떤 마음을 거쳐 설득되는가”가 핵심입니다. 그 심리의 축 7가지는 아래와 같습니다.</p></div>
+        <!-- [매핑 임시값 — ●/○ 위치는 예시이며 영상별로 확정 필요] -->
+        <div class="psy-mx">
+          <div class="mx-r"><div class="mx-h l">설득 심리 7가지 축</div><div class="mx-h"><img src="https://i.ytimg.com/vi/92s_YotZx1A/maxresdefault.jpg" alt="한강 인터뷰" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/92s_YotZx1A/hqdefault.jpg'"></div><div class="mx-h"><img src="https://i.ytimg.com/vi/BC4OTSl5qMw/maxresdefault.jpg" alt="지인 토크" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/BC4OTSl5qMw/hqdefault.jpg'"></div><div class="mx-h"><img src="https://i.ytimg.com/vi/np9bCtVzS-o/maxresdefault.jpg" alt="유튜버 콜라보" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/np9bCtVzS-o/hqdefault.jpg'"></div></div>
+          <div class="mx-r"><div class="mx-a"><b>회피 본능</b><span>손해·실패·위험·후회를 피하고 싶은 심리</span></div><div class="mx-c"><i class="off"></i></div><div class="mx-c"><i class="on"></i></div><div class="mx-c"><i class="on"></i></div></div>
+          <div class="mx-r"><div class="mx-a"><b>희망 / 욕망</b><span>더 나은 미래, 성공, 변화, 성장에 대한 기대</span></div><div class="mx-c"><i class="on"></i></div><div class="mx-c"><i class="off"></i></div><div class="mx-c"><i class="on"></i></div></div>
+          <div class="mx-r"><div class="mx-a"><b>소속감</b><span>특정 집단·문화·커뮤니티에 속하고 싶은 욕구</span></div><div class="mx-c"><i class="on"></i></div><div class="mx-c"><i class="on"></i></div><div class="mx-c"><i class="off"></i></div></div>
+          <div class="mx-r"><div class="mx-a"><b>인정 욕구</b><span>타인에게 인정받고 존중받고 싶은 심리</span></div><div class="mx-c"><i class="on"></i></div><div class="mx-c"><i class="off"></i></div><div class="mx-c"><i class="off"></i></div></div>
+          <div class="mx-r"><div class="mx-a"><b>통제감</b><span>내가 상황을 바꿀 수 있다는 느낌을 원하는 심리</span></div><div class="mx-c"><i class="off"></i></div><div class="mx-c"><i class="on"></i></div><div class="mx-c"><i class="on"></i></div></div>
+          <div class="mx-r"><div class="mx-a"><b>긴급함</b><span>지금 하지 않으면 놓친다는 압박감</span></div><div class="mx-c"><i class="off"></i></div><div class="mx-c"><i class="off"></i></div><div class="mx-c"><i class="on"></i></div></div>
+          <div class="mx-r"><div class="mx-a"><b>변화에 대한 두려움</b><span>세상이 변하는데 뒤처질 수 있다는 불안</span></div><div class="mx-c"><i class="off"></i></div><div class="mx-c"><i class="on"></i></div><div class="mx-c"><i class="off"></i></div></div>
+        </div>
+        <p class="psy-key"><span><i class="on" style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#10265a"></i>중심으로 다룬 축</span><span><i style="display:inline-block;width:16px;height:16px;border-radius:50%;box-sizing:border-box;border:1.5px solid #9aa3b5"></i>함께 다룬 축</span></p>
+        <div class="bg2-text"><p>개인 브랜딩 채널의 영상은 재직 기간에 약 300편을 제작했고(현재 채널의 전체 영상은 약 400편이며 퇴사 이후 영상을 포함합니다), 모두 위의 설득 심리 7가지 축을 기반으로 기획했습니다. 다만 이 심리를 문장 그대로 말하면 설명에 그칩니다. 그래서 근거로 믿게 하고, 같은 처지의 사람들 이야기로 공감하게 하고, 같은 주제를 먼저 다뤄 온 사람과의 대화로 신뢰를 쌓고, 대표님의 진솔한 이야기로 마음을 열었습니다. <a href="https://www.youtube.com/@teslaXinvestor" target="_blank" rel="noopener">채널 보기 ↗</a></p></div>
       </div>
     </div>
   </div>
@@ -622,14 +659,6 @@ article+article{margin-top:39px}
             <a class="yt-in" href="https://www.youtube.com/watch?v=Xjx18VdJ9ik" target="_blank" rel="noopener"><span class="yi" aria-hidden="true"></span><span class="yt-t">YouTube에서 보기</span></a>
           </div>
           </div>
-        </div>
-        <div class="note">
-          <dl>
-            <dt>제작 기간</dt><dd></dd>
-            <dt>로케이션</dt><dd></dd>
-            <dt>촬영 장비</dt><dd></dd>
-            <dt>제작 인원</dt><dd></dd>
-          </dl>
         </div>
       </div>
 
@@ -679,14 +708,6 @@ article+article{margin-top:39px}
           </div>
           </div>
         </div>
-        <div class="note">
-          <dl>
-            <dt>제작 기간</dt><dd></dd>
-            <dt>로케이션</dt><dd></dd>
-            <dt>촬영 장비</dt><dd></dd>
-            <dt>제작 인원</dt><dd></dd>
-          </dl>
-        </div>
       </div>
 
       <div class="bg2">
@@ -733,14 +754,6 @@ article+article{margin-top:39px}
           </div>
           </div>
         </div>
-        <div class="note">
-          <dl>
-            <dt>제작 기간</dt><dd></dd>
-            <dt>로케이션</dt><dd></dd>
-            <dt>촬영 장비</dt><dd></dd>
-            <dt>제작 인원</dt><dd></dd>
-          </dl>
-        </div>
       </div>
 
       <div class="bg2">
@@ -775,14 +788,6 @@ article+article{margin-top:39px}
             <div class="video" data-id="qPJgWPoTVSo" data-title="드론 인서트"></div>
             <a class="yt-in" href="https://www.youtube.com/watch?v=qPJgWPoTVSo" target="_blank" rel="noopener"><span class="yi" aria-hidden="true"></span><span class="yt-t">YouTube에서 보기</span></a>
           </div>
-        </div>
-        <div class="note">
-          <dl>
-            <dt>제작 기간</dt><dd></dd>
-            <dt>로케이션</dt><dd></dd>
-            <dt>촬영 장비</dt><dd></dd>
-            <dt>제작 인원</dt><dd></dd>
-          </dl>
         </div>
       </div>
 
@@ -832,14 +837,6 @@ article+article{margin-top:39px}
           <div class="vw vl">
           <div class="video" data-id="2S86vE2WQlk" data-title="매장 홍보 숏폼 영상"></div>
           <a class="yt-in" href="https://www.youtube.com/watch?v=2S86vE2WQlk" target="_blank" rel="noopener"><span class="yi" aria-hidden="true"></span><span class="yt-t">YouTube에서 보기</span></a>
-        </div>
-          <div class="note">
-          <dl>
-            <dt>제작 기간</dt><dd></dd>
-            <dt>로케이션</dt><dd></dd>
-            <dt>촬영 장비</dt><dd></dd>
-            <dt>제작 인원</dt><dd></dd>
-          </dl>
         </div>
         </div>
       </div>
